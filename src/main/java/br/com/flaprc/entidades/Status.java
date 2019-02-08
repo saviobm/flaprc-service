@@ -12,27 +12,24 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CATEGORIA", schema = "")
-public class Categoria extends FlapRCEntidade {
-	
+@Table(name = "STATUS", schema = "")
+public class Status extends FlapRCEntidade {
+
 	/**
 	 * serialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
-	@Column(name = "id_categoria")
+	@Column(name = "id_status")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "descricao")
 	private String descricao;
 	
-	@Column(name = "ativo")
-	private Boolean ativo;
-	
-	@OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
-	private List<Categoria> listaCategoria;
+	@OneToMany(mappedBy = "status", fetch = FetchType.LAZY)
+	private List<Pagamento> listaPagamento;
 
 	/**
 	 * @return the id
@@ -63,31 +60,17 @@ public class Categoria extends FlapRCEntidade {
 	}
 
 	/**
-	 * @return the ativo
+	 * @return the listaPagamento
 	 */
-	public Boolean getAtivo() {
-		return ativo;
+	public List<Pagamento> getListaPagamento() {
+		return listaPagamento;
 	}
 
 	/**
-	 * @param ativo the ativo to set
+	 * @param listaPagamento the listaPagamento to set
 	 */
-	public void setAtivo(Boolean ativo) {
-		this.ativo = ativo;
-	}
-
-	/**
-	 * @return the listaCategoria
-	 */
-	public List<Categoria> getListaCategoria() {
-		return listaCategoria;
-	}
-
-	/**
-	 * @param listaCategoria the listaCategoria to set
-	 */
-	public void setListaCategoria(List<Categoria> listaCategoria) {
-		this.listaCategoria = listaCategoria;
+	public void setListaPagamento(List<Pagamento> listaPagamento) {
+		this.listaPagamento = listaPagamento;
 	}
 	
 }
